@@ -2,7 +2,7 @@
 
 bool updatable = false;
 
-gpp::Vector3 v3;
+
 
 Game::Game() : window(VideoMode(800, 600), "OpenGL Cube")
 {
@@ -54,13 +54,13 @@ void Game::initialize()
 	{
 		//Front Face
 		glColor3f(0.0f, 0.0f, 1.0f);
-		glVertex3f(v3.getX(), 1.0f, -5.0f);
+		glVertex3f(1.0f, 1.0f, -5.0f);
 		glVertex3f(-1.0f, 1.0f, -5.0f);
 		glVertex3f(-1.0f, -1.0f, -5.0f);
 		glVertex3f(1.0f, -1.0f, -5.0f);
 
 		//Back Face
-		glColor3f(0.0f, 1.0f, 0.0f);
+		glColor3f(0.0f, 1.0f, 1.0f);
 		glVertex3f(1.0f, 1.0f, -15.0f);
 		glVertex3f(-1.0f, 1.0f, -15.0f);
 		glVertex3f(-1.0f, -1.0f, -15.0f);
@@ -98,16 +98,16 @@ void Game::update()
 		}
 	}
 	
-	cout << "Update up" << endl;
+	//cout << "Update up" << endl;
 }
 
 void Game::draw()
 {
-	cout << "Drawing" << endl;
+	//cout << "Drawing" << endl;
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	cout << "Drawing Cube " << endl;
+	//cout << "Drawing Cube " << endl;
 	glLoadIdentity();
 	glRotatef(rotationAngle, 0, 0, 1); // Rotates the camera on Y Axis
 
