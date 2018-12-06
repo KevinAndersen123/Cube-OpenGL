@@ -48,17 +48,9 @@ void Game::initialize()
 	// glNewList(index, GL_COMPILE);
 	// Creates a new Display List
 	// Initalizes and Compiled to GPU
-	// https://www.opengl.org/sdk/docs/man2/xhtml/glNewList.xml
 	glNewList(index, GL_COMPILE);
 	glBegin(GL_QUADS);
 	{
-		//Front Face
-		glColor3f(0.0f, 0.0f, 1.0f);
-		glVertex3f(1.0f, 1.0f, -5.0f);
-		glVertex3f(-1.0f, 1.0f, -5.0f);
-		glVertex3f(-1.0f, -1.0f, -5.0f);
-		glVertex3f(1.0f, -1.0f, -5.0f);
-
 		//Back Face
 		glColor3f(0.0f, 1.0f, 1.0f);
 		glVertex3f(1.0f, 1.0f, -15.0f);
@@ -66,7 +58,29 @@ void Game::initialize()
 		glVertex3f(-1.0f, -1.0f, -15.0f);
 		glVertex3f(1.0f, -1.0f, -15.0f);
 
+		//left Face
+		glColor3f(0.0f, 1.0f, 0.0f);
+		glVertex3f(-1.0f, 1.0f, -5.0f);
+		glVertex3f(-1.0f, 1.0f, -15.0f);
+		glVertex3f(-1.0f, -1.0f, -15.0f);
+		glVertex3f(-1.0f, -1.0f, -5.0f);
+		//right Face
+		glColor3f(1.0f, 0.0f, 0.0f);
+		glVertex3f(1.0f, 1.0f, -15.0f);
+		glVertex3f(1.0f, 1.0f, -5.0f);
+		glVertex3f(1.0f, -1.0f, -5.0f);
+		glVertex3f(1.0f, -1.0f, -15.0f);
+
+		//Front Face
+		glColor3f(0.0f, 0.0f, 1.0f);
+		glVertex3f(1.0f, 1.0f, -5.0f); //right top
+		glVertex3f(-1.0f, 1.0f, -5.0f); // left top
+		glVertex3f(-1.0f, -1.0f, -5.0f); //left bottom
+		glVertex3f(1.0f, -1.0f, -5.0f); //right bottom
+
+
 		//Complete the faces of the Cube
+
 	}
 	glEnd();
 	glEndList();
@@ -109,7 +123,7 @@ void Game::draw()
 
 	//cout << "Drawing Cube " << endl;
 	glLoadIdentity();
-	glRotatef(rotationAngle, 0, 0, 1); // Rotates the camera on Y Axis
+	glRotatef(rotationAngle, 0, 0, 0); // Rotates the camera on Y Axis
 
 	glCallList(1);
 
