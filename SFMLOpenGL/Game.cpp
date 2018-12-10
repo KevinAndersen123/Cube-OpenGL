@@ -78,8 +78,20 @@ void Game::initialize()
 		glVertex3f(-1.0f, -1.0f, -5.0f); //left bottom
 		glVertex3f(1.0f, -1.0f, -5.0f); //right bottom
 
+		//bottom face
+		glColor3f(0.2f, 0.0f, 0.5f);
+		glVertex3f(-1.0f, -1.0f, -5.0f); //right 
+		glVertex3f(-1.0f, -1.0f, -5.0f); // left 
+		glVertex3f(-1.0f, -1.0f, -15.0f); //left back
+		glVertex3f(-1.0f, -1.0f, -15.0f); //right back
 
-		//Complete the faces of the Cube
+		//top face
+		glColor3f(0.0f, 0.0f, 0.0f);
+		glVertex3f(1.0f, 1.0f, -5.0f); //right 
+		glVertex3f(1.0f, 1.0f, -5.0f); // left 
+		glVertex3f(1.0f, -1.0f, -15.0f); //left back
+		glVertex3f(1.0f, -1.0f, -15.0f); //right back
+
 
 	}
 	glEnd();
