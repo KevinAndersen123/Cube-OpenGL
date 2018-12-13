@@ -157,7 +157,7 @@ void Game::update()
 		glVertex3f(vectors[0].x, vectors[0].y, vectors[0].z);
 
 		// Left 
-		glColor3f(1.0, 0.0, 1.0);
+		glColor3f(1.0, -1.0, 0.0);
 		glVertex3f(vectors[6].x, vectors[6].y, vectors[6].z);
 		glVertex3f(vectors[5].x, vectors[5].y, vectors[5].z);
 		glVertex3f(vectors[1].x, vectors[1].y, vectors[1].z);
@@ -249,10 +249,21 @@ void Game::checkInput()
 			vectors[i] = (MyMatrix3::rotationZ(-0.001) * vectors[i]);
 		}
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::C))
 	{
-		glLoadIdentity();
+		for (int i = 0; i < 8; i++)
+		{
+			vectors[i] = (MyMatrix3::rotationY(-0.001) * vectors[i]);
+		}
 	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::V))
+	{
+		for (int i = 0; i < 8; i++)
+		{
+			vectors[i] = (MyMatrix3::rotationY(0.001) * vectors[i]);
+		}
+	}
+
 	// scale
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
 	{
@@ -273,28 +284,28 @@ void Game::checkInput()
 	{
 		for (int i = 0; i < 8; i++)
 		{
-			vectors[i] = vectors[i] + MyVector3(0, 0.01, 0);
+			vectors[i] = vectors[i] + MyVector3(0, 0.001, 0);
 		}
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
 		for (int i = 0; i < 8; i++)
 		{
-			vectors[i] = vectors[i] + MyVector3(0, -0.01, 0);
+			vectors[i] = vectors[i] + MyVector3(0, -0.001, 0);
 		}
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
 		for (int i = 0; i < 8; i++)
 		{
-			vectors[i] = vectors[i] + MyVector3(0.01, 0, 0);
+			vectors[i] = vectors[i] + MyVector3(0.001, 0, 0);
 		}
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
 		for (int i = 0; i < 8; i++)
 		{
-			vectors[i] = vectors[i] + MyVector3(-0.01, 0, 0);
+			vectors[i] = vectors[i] + MyVector3(-0.001, 0, 0);
 		}
 	}
 }

@@ -28,7 +28,6 @@ public:
 	MyVector3 v8{ 1.0f, -1.0f, 1.0f };
 
 	MyVector3 vectors[8];
-	//MyVector3 startingVectors[8];
 
 private:
 	Window window;
