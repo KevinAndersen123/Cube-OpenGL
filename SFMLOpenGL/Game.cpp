@@ -116,6 +116,14 @@ void Game::update()
 {
 	checkInput();
 
+	/// <summary>
+	/// upcomment to spin 
+	/// </summary>
+	for (int i = 0; i < 8; i++)
+	{
+		vectors[i] = (MyMatrix3::rotationY(-0.001) * vectors[i]);
+	}
+
 	glNewList(index, GL_COMPILE);
 	glBegin(GL_QUADS);
 	{
@@ -221,6 +229,7 @@ void Game::unload()
 
 void Game::checkInput()
 {
+	//rotate
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
 		for (int i = 0; i < 8; i++)
